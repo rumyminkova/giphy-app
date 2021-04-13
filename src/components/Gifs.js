@@ -2,12 +2,21 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Loader from "./Loader";
+import Paginate from "./Paginate";
 
 const Gifs = () => {
   const [gifs, setGifs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [search, setSearch] = useState("");
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+
+  const currentItems = gifs.slice(indexOfFirstItem, indexOfLastItem);
 
   const getGifs = async () => {
     setIsError(false);
@@ -16,7 +25,7 @@ const Gifs = () => {
       const results = await axios("https://api.giphy.com/v1/gifs/trending", {
         params: {
           api_key: process.env.REACT_APP_API_KEY,
-          limit: "10",
+          limit: 50,
         },
       });
       const data = results.data.data;
@@ -35,7 +44,7 @@ const Gifs = () => {
       const results = await axios("https://api.giphy.com/v1/gifs/search", {
         params: {
           api_key: process.env.REACT_APP_API_KEY,
-          limit: "10",
+          limit: 50,
           q: search,
         },
       });
@@ -56,7 +65,7 @@ const Gifs = () => {
     if (isLoading) return <Loader />;
     return (
       <div className="d-flex flex-wrap justify-content-center p-5">
-        {gifs.map((item) => (
+        {currentItems.map((item) => (
           <div key={item.id}>
             <img src={item.images.fixed_height.url} alt="gif" />
           </div>
@@ -87,6 +96,10 @@ const Gifs = () => {
     searchGifs();
   };
 
+  const pageSelected = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <>
       <RenderError />
@@ -107,7 +120,12 @@ const Gifs = () => {
           Go
         </button>
       </form>
-
+      <Paginate
+        currentPage={currentPage}
+        itemsPerPage={itemsPerPage}
+        totalItems={gifs.length}
+        pageSelected={pageSelected}
+      />
       <RenderGifs />
     </>
   );
