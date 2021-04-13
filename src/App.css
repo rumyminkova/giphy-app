@@ -1,7 +1,10 @@
-.app {
-  display: flex;
-  justify-content: center;
+body {
   background-color: black;
+}
+
+.app {
+  background-color: black;
+  align-items: center;
 }
 
 .loader {
