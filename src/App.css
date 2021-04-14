@@ -23,7 +23,7 @@ body {
 }
 
 .loader {
-  color: blue;
+  color: #b9019a;
 }
 
 .search-icon {
@@ -80,5 +80,20 @@ h1 {
   font-size: larger;
   cursor: pointer;
   transform: translateY(-1px);
+  transition: all 0.4s;
+}
+
+.trending-button {
+  background-color: #b9019a;
+  color: #cccbcb;
+  font-size: larger;
+  font-family: "Fredoka One", cursive;
+  border-radius: 1rem;
+  border: none;
+  transition: all 0.4s;
+}
+
+.trending-button:hover {
+  transform: translateY(-2px);
   transition: all 0.4s;
 }

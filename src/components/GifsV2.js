@@ -24,6 +24,12 @@ const GifsV2 = () => {
     paginate(1);
   };
 
+  const handleTrending = () => {
+    fetchGifs();
+    paginate(1);
+    setSearch("");
+  };
+
   if (isLoading) return <Loader />;
   return (
     <>
@@ -46,6 +52,15 @@ const GifsV2 = () => {
                   onClick={handleSearch}
                 />
               </span>
+            </div>
+            <h3 className="text-center my-4">... or see</h3>
+            <div className="d-flex justify-content-center">
+              <button
+                className="px-5 py-1 my-2 trending-button"
+                onClick={handleTrending}
+              >
+                Trending gifs
+              </button>
             </div>
           </div>
         </div>
@@ -72,7 +87,6 @@ const GifsV2 = () => {
         </>
       ) : (
         <h3 className="text-center">
-          {" "}
           Sorry, could not find gifs. Try a different search term.
         </h3>
       )}
