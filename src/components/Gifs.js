@@ -74,9 +74,9 @@ const Gifs = () => {
     );
   };
 
-  const RenderError = () => {
+  const RenderError = ({ error }) => {
     return (
-      isError && (
+      error && (
         <div
           className="alert alert-danger alert-dismissible fade show"
           role="alert"
