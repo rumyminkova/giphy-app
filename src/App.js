@@ -1,12 +1,12 @@
 import React from "react";
 
-import Gifs from "./components/Gifs";
+import GifsV2 from "./components/GifsV2";
 import "./App.css";
 
 const App = () => {
   return (
     <div className="app">
-      <Gifs />
+      <GifsV2 />
     </div>
   );
 };
