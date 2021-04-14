@@ -15,8 +15,7 @@ const Paginate = ({ totalItems, itemsPerPage, currentPage, paginate }) => {
               className={`page-item ${n === currentPage ? "active" : ""}`}
               key={n}
             >
-              <a
-                href="!#"
+              <button
                 onClick={() => paginate(n)}
                 className={`page-link border-0 ${
                   n === currentPage
@@ -25,7 +24,7 @@ const Paginate = ({ totalItems, itemsPerPage, currentPage, paginate }) => {
                 }`}
               >
                 {n}
-              </a>
+              </button>
             </li>
           );
         })}
