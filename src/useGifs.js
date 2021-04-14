@@ -9,11 +9,11 @@ const useGifs = (searchTerm) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const url = searchTerm
-    ? `${base_url}/search?api_key=${API_KEY}&q=${searchTerm}`
-    : `${base_url}/trending?api_key=${API_KEY}`;
+  const fetchGifs = async (searchTerm) => {
+    const url = searchTerm
+      ? `${base_url}/search?api_key=${API_KEY}&q=${searchTerm}`
+      : `${base_url}/trending?api_key=${API_KEY}`;
 
-  const fetchGifs = async () => {
     setIsError(false);
     setIsLoading(true);
     try {
