@@ -10,15 +10,18 @@ const GifsV2 = () => {
   const { gifs, isLoading, isError, fetchGifs } = useGifs();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(5);
-
+  const [itemsPerPage, setItemsPerPage] = useState(10);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-
   const currentItems = gifs.slice(indexOfFirstItem, indexOfLastItem);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
+  };
+
+  const handleSearch = () => {
+    fetchGifs(search);
+    paginate(1);
   };
 
   if (isLoading) return <Loader />;
@@ -40,7 +43,7 @@ const GifsV2 = () => {
               <span className="input-group-text search">
                 <i
                   className="fas fa-search search-icon"
-                  onClick={() => fetchGifs(search)}
+                  onClick={handleSearch}
                 />
               </span>
             </div>
@@ -48,22 +51,31 @@ const GifsV2 = () => {
         </div>
       </div>
 
-      <div className="d-flex justify-content-end px-3">
-        <Paginate
-          currentPage={currentPage}
-          itemsPerPage={itemsPerPage}
-          totalItems={gifs.length}
-          paginate={paginate}
-        />
-      </div>
-
-      <div className="d-flex flex-wrap justify-content-center p-5 my-5">
-        {currentItems.map((item) => (
-          <div key={item.id}>
-            <img src={item.images.fixed_height.url} alt="gif" />
+      {gifs.length ? (
+        <>
+          <div className="d-flex justify-content-end px-3 px-md-5 pt-5">
+            <Paginate
+              currentPage={currentPage}
+              itemsPerPage={itemsPerPage}
+              totalItems={gifs.length}
+              paginate={paginate}
+            />
           </div>
-        ))}
-      </div>
+
+          <div className="d-flex flex-wrap justify-content-center p-3 p-md-5 my-1">
+            {currentItems.map((item) => (
+              <div key={item.id}>
+                <img src={item.images.fixed_height.url} alt="gif" />
+              </div>
+            ))}
+          </div>
+        </>
+      ) : (
+        <h3 className="text-center">
+          {" "}
+          Sorry, could not find gifs. Try a different search term.
+        </h3>
+      )}
     </>
   );
 };
