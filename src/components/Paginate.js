@@ -1,24 +1,21 @@
 import React from "react";
 
-const Paginate = (props) => {
+const Paginate = ({ totalItems, itemsPerPage, currentPage, paginate }) => {
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(props.totalItems / props.itemsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
 
   return (
     <nav>
-      <ul className="pagination pagination-sm justify-content-end border-0">
+      <ul className="pagination justify-content-end border-0">
         {pageNumbers.map((n) => {
           return (
             <li
-              className={`page-item ${n === props.currentPage ? "active" : ""}`}
+              className={`page-item ${n === currentPage ? "active" : ""}`}
+              key={n}
             >
-              <a
-                href="#"
-                onClick={() => props.pageSelected(n)}
-                className="page-link"
-              >
+              <a href="!#" onClick={() => paginate(n)} className="page-link">
                 {n}
               </a>
             </li>

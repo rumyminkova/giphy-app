@@ -27,13 +27,14 @@ body {
 }
 
 .search-icon {
-  color: purple;
+  color: #b9019a;
   font-size: larger;
+  cursor: pointer;
 }
 
 h1 {
   font-family: "Fredoka One", cursive;
-  color: purple;
+  color: #cccbcb;
   background: rgb(131, 58, 180);
   background: linear-gradient(
     320deg,
@@ -43,4 +44,41 @@ h1 {
   );
   font-size: 6rem;
   text-align: center;
+}
+
+.search-input {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid #cccbcb;
+  transition: all 0.4s;
+  color: #cccbcb;
+}
+
+.search-input:focus {
+  background: transparent;
+  box-shadow: none;
+  border-bottom: 2px solid #b9019a;
+  color: #b9019a;
+}
+
+.search {
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+.search-icon {
+  color: #cccbcb;
+  font-size: larger;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.search-icon:hover {
+  color: #b9019a;
+  font-size: larger;
+  cursor: pointer;
+  transform: translateY(-1px);
+  transition: all 0.4s;
 }
