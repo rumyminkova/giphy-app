@@ -10,7 +10,7 @@ const GifsV2 = () => {
   const { gifs, isLoading, isError, fetchGifs } = useGifs();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const itemsPerPage = 10;
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = gifs.slice(indexOfFirstItem, indexOfLastItem);
