@@ -28,7 +28,7 @@ const GifsV2 = () => {
               className="btn btn-outline-secondary form-control"
               onClick={() => fetchGifs(search)}
             >
-              <i className="fas fa-search" />
+              <i className="fas fa-search search-icon" />
             </button>
           </div>
         </div>

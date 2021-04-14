@@ -25,3 +25,22 @@ body {
 .loader {
   color: blue;
 }
+
+.search-icon {
+  color: purple;
+  font-size: larger;
+}
+
+h1 {
+  font-family: "Fredoka One", cursive;
+  color: purple;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    320deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 49, 29, 1) 67%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  font-size: 6rem;
+  text-align: center;
+}
