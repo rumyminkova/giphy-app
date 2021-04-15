@@ -17,7 +17,7 @@ const Paginate = ({ totalItems, itemsPerPage, currentPage, paginate }) => {
             >
               <button
                 onClick={() => paginate(n)}
-                className={`page-link border-0 ${
+                className={`page-link border-0 page-btn ${
                   n === currentPage
                     ? "bg-light text-dark"
                     : "bg-dark text-light"

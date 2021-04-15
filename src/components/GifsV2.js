@@ -53,7 +53,7 @@ const GifsV2 = () => {
                 />
               </span>
             </div>
-            <h3 className="text-center my-4">... or see</h3>
+            <h4 className="text-center my-4 text-secondary">... or see</h4>
             <div className="d-flex justify-content-center">
               <button
                 className="px-5 py-1 my-2 trending-button"

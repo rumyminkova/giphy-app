@@ -50,17 +50,17 @@ h1 {
   background: transparent;
   border: none;
   border-radius: 0;
-  border-bottom: 2px solid #cccbcb;
+  border-bottom: 2px solid #b9019a;
   transition: all 0.4s;
-  color: #cccbcb;
+  color: #b9019a;
   font-size: larger;
 }
 
 .search-input:focus {
   background: transparent;
   box-shadow: none;
-  border-bottom: 2px solid #b9019a;
-  color: #b9019a;
+  border-bottom: 2px solid #cccbcb;
+  color: #cccbcb;
 }
 
 .search {
@@ -70,17 +70,15 @@ h1 {
 }
 
 .search-icon {
-  color: #cccbcb;
-  font-size: larger;
+  color: #b9019a;
+  font-size: 1.7rem;
   cursor: pointer;
   transition: all 0.4s;
 }
 
 .search-icon:hover {
-  color: #b9019a;
-  font-size: larger;
-  cursor: pointer;
-  transform: translateY(-1px);
+  color: #cccbcb;
+  transform: translateY(-2px);
   transition: all 0.4s;
 }
 
